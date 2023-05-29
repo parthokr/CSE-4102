@@ -5,9 +5,11 @@
 %}
 
 %token DIM ID AS INT
-%start S
+%start CODE
 %%
-S: DIM ID AS INT;
+CODE: CODE STMT
+    | STMT;
+STMT: DIM ID AS INT;
 %%
 
 int main() {

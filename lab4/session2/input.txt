@@ -1,1 +1,2 @@
 dim A as integer
+dim A as integer
