@@ -1,0 +1,6 @@
+for i=1 to 20 
+    for j=2 to 40
+        for k=1 to 10
+        next k
+    next j
+next i
