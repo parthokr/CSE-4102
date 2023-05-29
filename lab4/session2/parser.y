@@ -7,9 +7,9 @@
 %token DIM ID AS INT
 %start CODE
 %%
-CODE: CODE STMT
-    | STMT;
-STMT: DIM ID AS INT;
+CODE: CODE STMT {printf("CODE -> CODE STMT\n");}
+    | STMT {printf("CODE -> STMT\n");};
+STMT: DIM ID AS INT {printf("STMT -> DIM ID AS INT\n");}
 %%
 
 int main() {
