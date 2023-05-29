@@ -5,17 +5,11 @@
 %}
 
 %token NUM PLUS TIMES
-%start CAL
+%start EXPR
 %%
-CAL: CAL EXP { printf("Res=%d\n", $2); }
-    |
-    ;
-EXP: EXP PLUS TERM { $$ = $1 + $3; }
-    | TERM
-    ;
-TERM: TERM TIMES NUM { $$ = $1 * $3;}
-    | NUM
-    ;
+EXPR: EXPR PLUS EXPR { $$ = $1 + $3; printf("EXPR -> EXPR + EXPR = %d\n", $$);  }
+    | EXPR TIMES EXPR { $$ = $1 * $3; printf("EXPR -> EXPR * EXPR = %d\n", $$); }
+    | NUM { printf("EXPR -> NUM = %d\n", $$); }
 %%
 
 int main() {
